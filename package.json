@@ -1,0 +1,25 @@
+{
+  "name": "potent",
+  "version": "1.0.0",
+  "description": "Simple, effective XPath rule generalizer - easily learn matching patterns in XML documents",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "potent-tools": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-config-strawhouse": "^2.1.5",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
