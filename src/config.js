@@ -1,11 +1,4 @@
-// TODO: make all this stuff inputs.
-const ATTRIBUTE_SEPARATORS = {
-  class: ' ',
-  rel: ' ',
-  rev: ' ',
-  style: ';',
-  // 'href': '/' // just kidding (for now? maybe an option), but this could be cool.
-};
+// TODO: make this stuff inputs.
 
 // this should probably be controlled by the user, sort of, maybe "learn" it somehow by penalizing titles differently and allowing almost matches.
 // I don't like ignoring title, but StackOverflow plays games with it.
@@ -18,7 +11,6 @@ const COSTS = {
 };
 
 module.exports = {
-  ATTRIBUTE_SEPARATORS,
   IGNORED_ATTRIBUTES,
   COSTS,
 };

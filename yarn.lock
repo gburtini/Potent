@@ -287,15 +287,9 @@ debug@2.2.0:
   dependencies:
     ms "0.7.1"
 
-debug@2.6.0:
+debug@2.6.0, debug@^2.1.1, debug@^2.2.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
-  dependencies:
-    ms "0.7.2"
-
-debug@^2.1.1, debug@^2.2.0:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
     ms "0.7.2"
 
@@ -1342,6 +1336,10 @@ safe-buffer@^5.0.1:
 sax@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
+
+separated-attributes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/separated-attributes/-/separated-attributes-1.0.1.tgz#f51ae20e0e5de325fa0af89a9e95077ea46dc875"
 
 shelljs@^0.7.5:
   version "0.7.7"

@@ -1,5 +1,6 @@
+const { isSeparatedAttribute, splitAttribute } = require('separated-attributes');
 const { COSTS } = require('./config');
-const { isSeparatedAttribute, isIgnoredAttribute } = require('./helpers');
+const {  isIgnoredAttribute } = require('./helpers');
 
 function commonValues(arr1, arr2) {
   let cost = 0;
@@ -37,15 +38,13 @@ function commonAttributes(Lattributes, Rattributes) {
       return;
     }
     if (isIgnoredAttribute(attribute)) return;
-
-    const splitter = isSeparatedAttribute(attribute);
-    if (splitter !== false) {
+    if (isSeparatedAttribute(attribute)) {
       // this is a separated attribute, so split it in to its pieces.
       // e.g., class names are space separated: "button green-button".
 
       const values = commonValues(
-        leftAttributes[attribute].split(splitter),
-        rightAttributes[attribute].split(splitter)
+        splitAttribute(attribute, leftAttributes[attribute]),
+        splitAttribute(attribute, rightAttributes[attribute])
       );
 
       attributes[attribute] = values.common;

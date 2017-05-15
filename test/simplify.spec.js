@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const simplify = require('../src/simplify');
+const { simplify } = require('../index');
 
 describe('simplify', () => {
   it('should take in two XPaths and generate their greatest common subset', () => {
