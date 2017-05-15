@@ -1,20 +1,20 @@
 // TODO: these belong in potent-tools as the function that generates these objects is there.
-const { isSeparatedAttribute } = require('./helpers');
+const { splitAttributes } = require('separated-attributes');
 
 function attributesToXPath(attributes) {
   let ret = '';
-  for (const i in attributes) {
-    const attribute = attributes[i];
+  const processedAttributes = splitAttributes(attributes);
+  processedAttributes.forEach((i) => {
+    const attribute = processedAttributes[i];
 
-    const splitter = isSeparatedAttribute(i);
-    if (splitter !== false && typeof attribute !== 'string') {
-      for (const a in attribute) {
-        ret += `[contains(concat(' ', normalize-space(@${i}), ' '), ' ${attribute[a]} ')]`;
-      }
+    if (Array.isArray(attribute)) {
+      // TODO: this still seems wrong.
+      ret += attribute.map(a => `[contains(concat(' ', normalize-space(@${i}), ' '), ' ${a} ')]`).join('');
     } else {
       ret += `[@${i}='${attribute}']`;
     }
-  }
+  });
+
   return ret;
 }
 
@@ -31,13 +31,16 @@ function nodeToXPath(node) {
 }
 
 // TODO: wtf is an array obj.
-function objectToXPath(arrayobj) {
+function objectToXPath(nodeArray) {
+  if (!nodeArray) return '';
+
   const result = [];
-  for (const i in arrayobj) {
-    const node = arrayobj[i];
+  for (const i in nodeArray) {
+    const node = nodeArray[i];
     result.push(nodeToXPath(node));
   }
-  return arrayobj ? `/${result.join('/')}` : '';
+
+  return `/${result.join('/')}`;
 }
 
 module.exports = {
