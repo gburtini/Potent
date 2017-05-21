@@ -9,12 +9,12 @@
   "author": "Giuseppe Burtini",
   "license": "(MIT OR BSD-3-Clause)",
   "dependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.4.1",
     "potent-tools": "^2.2.6",
     "separated-attributes": "^1.0.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-strawhouse": "^2.1.5",
