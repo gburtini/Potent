@@ -5,7 +5,6 @@ const potentTools = require('potent-tools');
 const XPathQuery = potentTools.types.XPathQuery;
 const XPathNode = potentTools.types.XPathNode;
 
-
 const path = [
   [
     { tag: 'html', attributes: {}, index: 0 },
@@ -34,9 +33,7 @@ describe('simplify', () => {
 
   it('should accept XPathQuery objects', () => {
     const queryObject = path.map((query) => {
-      return new XPathQuery(
-        query.map(node => new XPathNode(node))
-      );
+      return new XPathQuery(query.map(node => new XPathNode(node)));
     });
 
     const simplified = simplify(queryObject);

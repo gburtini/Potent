@@ -3,7 +3,9 @@ const { generators, evaluators } = require('potent-tools');
 function getDefaultDocument() {
   // eslint-disable-next-line no-undef
   if (document) return document;
-  throw new Error('`document` does not exist, specify a virtual document in `find`');
+  throw new Error(
+    '`document` does not exist, specify a virtual document in `find`'
+  );
 }
 
 module.exports = {
