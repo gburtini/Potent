@@ -137,7 +137,10 @@ function simplifyXPath(arrayOfNodes) {
   // TODO: sum a cost here.
   // TODO: rewrite functionally.
   function getSimpleNodeObject(obj) {
-    return obj instanceof XPathQuery ? obj.nodes : obj;
+    if (obj instanceof XPathQuery) return obj.nodes;
+    if (obj instanceof Array) return obj;
+    if (obj instanceof String) return XPathQuery.fromString(obj);
+    throw new Error('Invalid type passed to simplify,');
   }
   let current = getSimpleNodeObject(arrayOfNodes[0]);
   for (let i = 1; i < arrayOfNodes.length; i++) {

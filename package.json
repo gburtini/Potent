@@ -1,6 +1,6 @@
 {
   "name": "potent",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "XPath rule generalizer - easily learn dynamic matching patterns in XML documents",
   "main": "index.js",
   "scripts": {
