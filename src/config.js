@@ -1,7 +1,5 @@
-// TODO: make this stuff inputs.
-
 // this should probably be controlled by the user, sort of, maybe "learn" it somehow by penalizing titles differently and allowing almost matches.
-// I don't like ignoring title, but StackOverflow plays games with it.
+// I don't like ignoring title, but StackOverflow plays games with it. TODO: make this stuff inputs.
 const IGNORED_ATTRIBUTES = ['style', 'title'];
 const COSTS = {
   TAG: 5,

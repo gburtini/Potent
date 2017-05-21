@@ -1,6 +1,12 @@
-const { isSeparatedAttribute, splitAttribute } = require('separated-attributes');
+const {
+  isSeparatedAttribute,
+  splitAttribute,
+} = require('separated-attributes');
 const { COSTS } = require('./config');
-const {  isIgnoredAttribute } = require('./helpers');
+const { isIgnoredAttribute } = require('./helpers');
+const potentTools = require('potent-tools');
+const XPathQuery = potentTools.types.XPathQuery;
+const XPathNode = potentTools.types.XPathNode;
 
 function commonValues(arr1, arr2) {
   let cost = 0;
@@ -31,9 +37,12 @@ function commonAttributes(Lattributes, Rattributes) {
   const attributes = {};
   let cost = 0;
 
-  // TODO: make this a reduce.
+  // TODO: make this a reduce instead.
   Object.keys(leftAttributes).forEach((attribute) => {
-    if (leftAttributes[attribute] === undefined || rightAttributes[attribute] === undefined) {
+    if (
+      leftAttributes[attribute] === undefined ||
+      rightAttributes[attribute] === undefined
+    ) {
       // TODO: this screws up the cost a bit.
       return;
     }
@@ -122,16 +131,23 @@ function commonXPath(a, b) {
 }
 
 // this takes the return value of potent-tools::generators.getElementTreeXPath when asString is passed as false.
-function simplifyXPath(arrayOfXPathArrays) {
+function simplifyXPath(arrayOfNodes) {
   // TODO: sum a cost here.
   // TODO: rewrite functionally.
-
-  let current = arrayOfXPathArrays[0];
-  for (let i = 1; i < arrayOfXPathArrays.length; i++) {
-    current = commonXPath(current, arrayOfXPathArrays[i]).common;
+  function getSimpleNodeObject(obj) {
+    return obj instanceof XPathQuery
+      ? obj.nodes
+      : obj;
+  }
+  let current = getSimpleNodeObject(arrayOfNodes[0]);
+  for (let i = 1; i < arrayOfNodes.length; i++) {
+    const currentNode = getSimpleNodeObject(arrayOfNodes[i]);
+    current = commonXPath(current, currentNode).common;
   }
 
-  return current;
+  return new XPathQuery(
+    current.map(i => new XPathNode(i))
+  );
 }
 
 module.exports = simplifyXPath;

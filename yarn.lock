@@ -134,6 +134,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+biginteger@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/biginteger/-/biginteger-1.0.3.tgz#111c682070b852d0677a1621fd33452aab674607"
+
 boom@2.x.x:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
@@ -254,6 +258,10 @@ cryptiles@2.x.x:
   resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-2.0.5.tgz#3bdfecdc608147c1c67202fa291e7dca59eaa3b8"
   dependencies:
     boom "2.x.x"
+
+css-xpath@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/css-xpath/-/css-xpath-1.0.0.tgz#01e3078ab7cc2c9062b27c76e2d069a12951b181"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.2"
@@ -904,6 +912,12 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
+"js-xpath@git+https://github.com/dimagi/js-xpath.git":
+  version "0.0.3"
+  resolved "git+https://github.com/dimagi/js-xpath.git#f9a249581249c2fda914cc2483291dac1f815d87"
+  dependencies:
+    biginteger "^1.0.3"
+
 js-yaml@^3.5.1:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.3.tgz#33a05ec481c850c8875929166fe1beb61c728766"
@@ -1038,7 +1052,7 @@ lodash.keys@^3.0.0:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
-lodash@^4.0.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -1209,11 +1223,15 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
-potent-tools@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/potent-tools/-/potent-tools-1.0.3.tgz#b14968be7124929c9c479a4100088b55c55ff8c6"
+potent-tools@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/potent-tools/-/potent-tools-2.2.6.tgz#02c0cf1a57e77b3cf7b04113872843259ca207a4"
   dependencies:
+    css-xpath "^1.0.0"
+    js-xpath "https://github.com/dimagi/js-xpath"
     jsdom "^9.12.0"
+    lodash "^4.17.4"
+    separated-attributes "^1.0.1"
     xpath "^0.0.24"
 
 prelude-ls@~1.1.2:
