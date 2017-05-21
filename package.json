@@ -6,6 +6,15 @@
   "scripts": {
     "test": "mocha test"
   },
+  "keywords": [
+    "xpath",
+    "xml",
+    "xpath-expressions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gburtini/Potent.git"
+  },
   "author": "Giuseppe Burtini",
   "license": "(MIT OR BSD-3-Clause)",
   "dependencies": {
