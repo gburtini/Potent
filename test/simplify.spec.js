@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const { simplify } = require('../index');
 const potentTools = require('potent-tools');
+
 const XPathQuery = potentTools.types.XPathQuery;
 const XPathNode = potentTools.types.XPathNode;
 
@@ -26,7 +27,8 @@ describe('simplify', () => {
     expect(simplified.nodes[0].index).to.be.eq(0);
     expect(simplified.nodes[0].attributes).to.be.empty;
 
-    // TODO: this is arguable, in this case I think it should probably be "div|p", but this should be a function of some config.
+    // TODO: this is arguable, in this case I think it should probably be "div|p",
+    // but this should be a function of some config.
     expect(simplified.nodes[2].tag).to.be.eq('*');
   });
 

@@ -5,6 +5,7 @@ const {
 const { COSTS } = require('./config');
 const { isIgnoredAttribute } = require('./helpers');
 const potentTools = require('potent-tools');
+
 const XPathQuery = potentTools.types.XPathQuery;
 const XPathNode = potentTools.types.XPathNode;
 
@@ -130,14 +131,13 @@ function commonXPath(a, b) {
   );
 }
 
-// this takes the return value of potent-tools::generators.getElementTreeXPath when asString is passed as false.
+// this takes the return value of potent-tools::generators.getElementTreeXPath
+// when asString is passed as false.
 function simplifyXPath(arrayOfNodes) {
   // TODO: sum a cost here.
   // TODO: rewrite functionally.
   function getSimpleNodeObject(obj) {
-    return obj instanceof XPathQuery
-      ? obj.nodes
-      : obj;
+    return obj instanceof XPathQuery ? obj.nodes : obj;
   }
   let current = getSimpleNodeObject(arrayOfNodes[0]);
   for (let i = 1; i < arrayOfNodes.length; i++) {
@@ -145,9 +145,7 @@ function simplifyXPath(arrayOfNodes) {
     current = commonXPath(current, currentNode).common;
   }
 
-  return new XPathQuery(
-    current.map(i => new XPathNode(i))
-  );
+  return new XPathQuery(current.map(i => new XPathNode(i)));
 }
 
 module.exports = simplifyXPath;
